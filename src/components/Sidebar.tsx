@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { LayoutDashboard, Pill, Hospital } from "lucide-react";
 
 interface SidebarProps {
   onClose?: () => void;
@@ -36,40 +37,72 @@ const Sidebar = ({ onClose }: SidebarProps) => {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 p-4 space-y-2">
+      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+        {/* Dashboard Link */}
         <NavLink
           to="/"
           end
           onClick={onClose}
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-              isActive ? "bg-amber-500 text-white" : "hover:bg-gray-700"
+            `flex items-center gap-3 px-4 py-3 rounded-lg transition font-medium ${
+              isActive
+                ? "bg-amber-500 text-white shadow-md shadow-amber-500/20"
+                : "text-gray-300 hover:bg-gray-800 hover:text-white"
             }`
           }
         >
-          📊 Dashboard
+          {({ isActive }) => (
+            <>
+              <LayoutDashboard
+                className={`w-5 h-5 transition ${isActive ? "text-white" : "text-gray-400"}`}
+              />
+              <span>Dashboard</span>
+            </>
+          )}
         </NavLink>
+
+        {/* Dorilar Link */}
         <NavLink
           to="/medicines"
           onClick={onClose}
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-              isActive ? "bg-amber-500 text-white" : "hover:bg-gray-700"
+            `flex items-center gap-3 px-4 py-3 rounded-lg transition font-medium ${
+              isActive
+                ? "bg-amber-500 text-white shadow-md shadow-amber-500/20"
+                : "text-gray-300 hover:bg-gray-800 hover:text-white"
             }`
           }
         >
-          💊 Dorilar
+          {({ isActive }) => (
+            <>
+              <Pill
+                className={`w-5 h-5 transition ${isActive ? "text-white" : "text-gray-400"}`}
+              />
+              <span>Dorilar</span>
+            </>
+          )}
         </NavLink>
+
+        {/* Dorixonalar Link */}
         <NavLink
           to="/pharmacies"
           onClick={onClose}
           className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-              isActive ? "bg-amber-500 text-white" : "hover:bg-gray-700"
+            `flex items-center gap-3 px-4 py-3 rounded-lg transition font-medium ${
+              isActive
+                ? "bg-amber-500 text-white shadow-md shadow-amber-500/20"
+                : "text-gray-300 hover:bg-gray-800 hover:text-white"
             }`
           }
         >
-          🏥 Dorixonalar
+          {({ isActive }) => (
+            <>
+              <Hospital
+                className={`w-5 h-5 transition ${isActive ? "text-white" : "text-gray-400"}`}
+              />
+              <span>Dorixonalar</span>
+            </>
+          )}
         </NavLink>
       </nav>
     </div>
