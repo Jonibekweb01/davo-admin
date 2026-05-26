@@ -40,7 +40,7 @@ export const Dashboard: React.FC = () => {
       try {
         // Backenddagi yangi endpointimizdan statistikani olish
         const response = await fetch(
-          "http://localhost:5000/api/v1/medicines/dashboard/stats",
+          "https://davo-backend.onrender.com/api/v1/medicines/dashboard/stats",
         );
         const resData = await response.json();
 
